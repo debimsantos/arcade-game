@@ -20,7 +20,7 @@ Enemy.prototype.update = function(dt) {
     if (this.x < 505) {
         this.x += this.speed * dt;
     } else {
-        this.x = -50;
+        this.x = -80;
     }
 };
 
@@ -30,9 +30,6 @@ Enemy.prototype.render = function() {
 };
 
 // Now write your own player class
-
-// a handleInput() method.
-
 var Player = function(x, y) {
     this.x = x;
     this.y = y;
@@ -40,8 +37,42 @@ var Player = function(x, y) {
 };
 
 // This class requires an update(), render() and
-Player.prototype.update = function(dt) {
+//  canvas.width = 505; canvas.height = 606;
+Player.prototype.update = function() {
+    if (this.x > 505) {
+      this.x = 505;
+    }
+    if (this.y > 606) {
+      this.y = 606;
+    }
+    if (this.x < 0) {
+      this.x = 0;
+    }
+    if (this.y < 0) {
+      this.y = 0;
+      alert('Congratulations! You beat the bugs')
+    }
 
+
+//    detectCollision();    TODO
+//    checkWin(); TODO
+
+};
+
+// a handleInput() method.
+Player.prototype.handleInput = function(keys) {
+    if (keys == 'right') {
+        player.x += 50;
+    }
+    if (keys == 'left') {
+        player.x -= 50;
+    }
+    if (keys == 'up') {
+        player.y -= 80;
+    }
+    if (keys == 'down') {
+        player.y += 80;
+    }
 };
 
 Player.prototype.render = function() {
@@ -51,12 +82,21 @@ Player.prototype.render = function() {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [
-    new Enemy (-20, 65, 100),
-    new Enemy (-40, 225, 100),
-    new Enemy (-50, 150, 100),
+    new Enemy (-20, 65, 300),
+    new Enemy (-120, 65, 100),
+    new Enemy (-50, 145, 250),
+    new Enemy (-120, 145, 300),
+    new Enemy (-40, 230, 100),
+    new Enemy (-80, 230, 100),
+
 ];
 // Place the player object in a variable called player
 var player = new Player(200, 400);
+
+//Player wins if y = 0 TODO
+// bug size: 101 x 171
+
+
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
@@ -68,5 +108,5 @@ document.addEventListener('keyup', function(e) {
         40: 'down'
     };
 
-    //Player.handleInput(allowedKeys[e.keyCode]);
+    player.handleInput(allowedKeys[e.keyCode]);
 });
