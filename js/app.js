@@ -39,11 +39,11 @@ var Player = function(x, y) {
 // This class requires an update(), render() and
 //  canvas.width = 505; canvas.height = 606;
 Player.prototype.update = function() {
-    if (this.x > 505) {
-      this.x = 505;
+    if (this.x > 400) {
+      this.x = 400;
     }
-    if (this.y > 606) {
-      this.y = 606;
+    if (this.y > 400) {
+      this.y = 400;
     }
     if (this.x < 0) {
       this.x = 0;
@@ -64,12 +64,15 @@ Player.prototype.handleInput = function(keys) {
     if (keys == 'right') {
         player.x += 50;
     }
+
     if (keys == 'left') {
         player.x -= 50;
     }
+
     if (keys == 'up') {
         player.y -= 80;
     }
+
     if (keys == 'down') {
         player.y += 80;
     }
