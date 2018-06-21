@@ -75,10 +75,12 @@ function detectCollision() {
         (player.y < bugY + 25) &&
         (30 + player.y > bugY)
       ) {
-        alert ('A bug beat you. Play again');
-        collided = true;
-        break;
-      }
+        setTimeout(function() {
+          alert ('A bug beat you. Play again');
+          }, 500);
+          collided = true;
+          break;
+        }
   }
 
   return collided;
@@ -101,7 +103,9 @@ Player.prototype.handleInput = function(keys) {
         player.y -= 80; //player moves up
 
         if (player.y < 5) {
+          setTimeout(function() {
           alert('Congratulations! You beat the bugs')
+          }, 500);
         }
 
     } else if (keys == 'down') {
