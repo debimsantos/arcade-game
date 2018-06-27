@@ -63,32 +63,6 @@ class Player extends Entities{
           this.y = 0;
         }
       }
-    // Collision Algo Source: https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
-    // bug size: 101 x 77
-    detectCollision(){
-        if (collided) {
-          return;
-        }
-
-        for (let bug of allEnemies) {
-            let bugX = bug.x;
-            let bugY = bug.y;
-
-            if (
-              (player.x < bugX + 50) &&
-              (player.x + 35 > bugX) &&
-              (player.y < bugY + 25) &&
-              (30 + player.y > bugY)
-            ) {
-              setTimeout(function() {
-                alert ('A bug beat you. Play again');
-                }, 500);
-                collided = true;
-                break;
-              }
-        }
-        return collided;
-    }
 
     // Key press for left, right, up, down movement
     handleInput(keys) {
@@ -111,7 +85,7 @@ class Player extends Entities{
         } else if (keys == 'down') {
             player.y += 80; //player moves down
         }
-}
+      }
 }
 
 

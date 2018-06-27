@@ -79,7 +79,37 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        detectCollision();
+    }
+
+    /* Collision Algo Source:  *https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+    * bug size: 101 x 77
+    */
+    function detectCollision() {
+
+        if (collided) {
+          return;
+        }
+
+        for (let bug of allEnemies) {
+            let bugX = bug.x;
+            let bugY = bug.y;
+
+            if (
+              (player.x < bugX + 50) &&
+              (player.x + 35 > bugX) &&
+              (player.y < bugY + 25) &&
+              (30 + player.y > bugY)
+            ) {
+              setTimeout(function() {
+                alert ('A bug beat you. Play again');
+                }, 500);
+                collided = true;
+                break;
+              }
+        }
+
+        return collided;
     }
 
     /* This is called by the update function and loops through all of the
