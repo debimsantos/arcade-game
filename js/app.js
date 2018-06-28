@@ -78,8 +78,13 @@ class Player extends Entities{
 
             if (player.y < 5) {  //player reaches water
               setTimeout(function() {
-              alert('Congratulations! You beat the bugs')
+              window.confirm('Congratulations! You beat the bugs. Play again?')
               }, 500);
+                if (confirm){
+                  reset();
+                } else {
+                  return;
+                }
             }
 
         } else if (keys == 'down') {
@@ -99,7 +104,7 @@ let allEnemies = [
     new Enemy (-120, 65, 100),
     new Enemy (-50, 145, 250),
     new Enemy (-120, 145, 300),
-    new Enemy (-40, 230, 100),
+    new Enemy (-40, 230, 300),
     new Enemy (-80, 230, 100),
 
 ];

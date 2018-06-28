@@ -101,12 +101,9 @@ var Engine = (function(global) {
               (player.y < bugY + 25) &&
               (30 + player.y > bugY)
             ) {
-              setTimeout(function() {
-                alert ('A bug beat you. Play again');
-                }, 500);
-                collided = true;
-                break;
-              }
+              player.x = 200;
+              player.y = 410;
+            }
         }
 
         return collided;
@@ -191,7 +188,8 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+        //let allEnemies = [];
+        //new Player(200, 410);
     }
 
     /* Go ahead and load all of the images we know we're going to need to
