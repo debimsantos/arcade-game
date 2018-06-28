@@ -76,26 +76,18 @@ class Player extends Entities{
         else if (keys == 'up') {
           this.y -= 80; //player moves up
 
-            if (this.y < 5) {  //player reaches water, player wins
-              setTimeout(function() {
-              window.confirm('Congratulations! You beat the bugs. Play again?')
-              }, 500);
-                if (confirm){
-                  window.requestAnimationFrame(main);
-                } else {
-                  return;
-                }
-            }
+          if (player.y < 5) {  //player reaches water, player wins
+            setTimeout(function() {
+            alert('Congratulations! You beat the bugs.')
+            window.location.reload(true);
+            }, 500);
+          }
         }
         else if (keys == 'down') {
           this.y += 80; //player moves down
         }
       }
 }
-
-
-// Reset function when player hits play again? TODO
-// initiateGame(): TODO
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
@@ -106,7 +98,6 @@ let allEnemies = [
     new Enemy (-120, 145, 300),
     new Enemy (-40, 230, 300),
     new Enemy (-80, 230, 100),
-
 ];
 // Place the player object in a variable called player
 let player = new Player(200, 410);
