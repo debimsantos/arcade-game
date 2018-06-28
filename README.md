@@ -1,4 +1,4 @@
-#CLASSIC ARCADE GAME
+CLASSIC ARCADE GAME
 ===================
 
 ## How The Game Works
