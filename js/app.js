@@ -1,5 +1,5 @@
 class Entities {
-    constructor(x, y, speed = 50, sprite) {
+    constructor(x, y, speed, sprite) {
       this.x = x;
       this.y = y;
       this.speed = speed;
@@ -68,27 +68,27 @@ class Player extends Entities{
     handleInput(keys) {
 
         if (keys == 'right') {
-            player.x += 50; //player moves right
+          this.x += 50; //player moves right
+        }
+        else if (keys == 'left') {
+          this.x -= 50; //player moves left
+        }
+        else if (keys == 'up') {
+          this.y -= 80; //player moves up
 
-        } else if (keys == 'left') {
-            player.x -= 50; //player moves left
-
-        } else if (keys == 'up') {
-            player.y -= 80; //player moves up
-
-            if (player.y < 5) {  //player reaches water
+            if (this.y < 5) {  //player reaches water, player wins
               setTimeout(function() {
               window.confirm('Congratulations! You beat the bugs. Play again?')
               }, 500);
                 if (confirm){
-                  reset();
+                  window.requestAnimationFrame(main);
                 } else {
                   return;
                 }
             }
-
-        } else if (keys == 'down') {
-            player.y += 80; //player moves down
+        }
+        else if (keys == 'down') {
+          this.y += 80; //player moves down
         }
       }
 }
