@@ -1,3 +1,5 @@
+let collided = false;
+
 class Entities {
     constructor(x, y, speed, sprite) {
       this.x = x;
@@ -10,8 +12,6 @@ class Entities {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 }
-
-let collided = false;
 
 // Enemies our player must avoid
 class Enemy extends Entities {
