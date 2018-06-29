@@ -15,14 +15,11 @@ let collided = false;
 
 // Enemies our player must avoid
 class Enemy extends Entities {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
     constructor(x, y, speed, sprite){
         super(x, y);
+        // Bugs have different speed
         this.speed = Math.random() * speed;
-
-        // The image/sprite for our enemies, this uses
-        // a helper we've provided to easily load images
+        // Image file for the bugs
         this.sprite = 'images/enemy-bug.png';
         }
 
@@ -40,26 +37,27 @@ class Enemy extends Entities {
     }
 };
 
-// Now write your own player class
+// Player class
 class Player extends Entities{
     constructor(x, y, sprite){
         super (x, y);
+        // Image file for the player character
         this.sprite = 'images/char-catgirl.png';
       }
-    // This class requires an update(), render() and
-    // canvas.width = 505; canvas.height = 606;
+    // This class requires an update(), render()
+    // Note canvas.width = 505; canvas.height = 606;
     // This keeps player inside the canvas
     update(){
         if (this.x > 400) {
           this.x = 400;
-        }
-        if (this.y > 400) {
+
+        } if (this.y > 400) {
           this.y = 400;
-        }
-        if (this.x < 0) {
+
+        } if (this.x < 0) {
           this.x = 0;
-        }
-        if (this.y < 0) {
+
+        } if (this.y < 0) {
           this.y = 0;
         }
       }
@@ -69,21 +67,22 @@ class Player extends Entities{
 
         if (keys == 'right') {
           this.x += 50; //player moves right
-        }
-        else if (keys == 'left') {
+
+        } else if (keys == 'left') {
           this.x -= 50; //player moves left
-        }
-        else if (keys == 'up') {
+
+        } else if (keys == 'up') {
           this.y -= 80; //player moves up
 
           if (player.y < 5) {  //player reaches water, player wins
             setTimeout(function() {
             alert('Congratulations! You beat the bugs.')
+            // Reload the game
             window.location.reload(true);
             }, 500);
           }
-        }
-        else if (keys == 'down') {
+
+        } else if (keys == 'down') {
           this.y += 80; //player moves down
         }
       }

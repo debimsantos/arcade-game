@@ -96,11 +96,15 @@ var Engine = (function(global) {
             let bugY = bug.y;
 
             if (
+              // Player's x and y axis are compared
+              // against every bug's x and y axis
+              // if the are sharing space then collided
               (player.x < bugX + 50) &&
               (player.x + 35 > bugX) &&
               (player.y < bugY + 25) &&
               (30 + player.y > bugY)
             ) {
+              // Sets player to starting position
               player.x = 200;
               player.y = 410;
             }
