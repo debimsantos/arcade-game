@@ -6,6 +6,9 @@ CLASSIC ARCADE GAME
 In this game, you have a Player and Enemies (bugs). The goal of the player is to reach the water, without colliding into any one of the bugs. The player can move left, right, up and down using the keyboard arrow keys. The enemies move in varying speeds on the paved block portion of the canvas. Once the player hits a bug, the game is reset and the player moves back to the starting position. The game is won once the player reaches the water.
 [Source: Udacity Project Overview](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
 
+## How to run the application/game
+Clone or download a copy of the files from the repository and open the index.html on your browser to load the game.
+
 ## Functionalities to be implemented / Use case
 ### Player moves
 The player can move across the canvas with the press of the arrow keys. The player cannot move outside of the canvas.
