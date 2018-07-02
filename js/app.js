@@ -1,3 +1,5 @@
+'use strict';
+
 let collided = false;
 
 class Entities {
@@ -44,35 +46,26 @@ class Player extends Entities{
         // Image file for the player character
         this.sprite = 'images/char-catgirl.png';
       }
-    // This class requires an update(), render()
+
     // Note canvas.width = 505; canvas.height = 606;
     // This keeps player inside the canvas
-    update(){
-        if (this.x > 400) {
-          this.x = 400;
-
-        } if (this.y > 400) {
-          this.y = 400;
-
-        } if (this.x < 0) {
-          this.x = 0;
-
-        } if (this.y < 0) {
-          this.y = 0;
-        }
-      }
-
     // Key press for left, right, up, down movement
     handleInput(keys) {
 
-        if (keys == 'right') {
+        if (keys == 'right' && this.x < 400) {
           this.x += 50; //player moves right
 
-        } else if (keys == 'left') {
+        } if (this.x > 400) { //right
+          this.x = 400;
+
+        } if (keys == 'left' && this.x > 0) {
           this.x -= 50; //player moves left
 
-        } else if (keys == 'up') {
-          this.y -= 80; //player moves up
+        } if (this.x < 0) { //left
+          this.x = 0;
+
+        } if (keys == 'up' && this.y > 0) {
+          this.y -= 82; //player moves up
 
           if (this.y < 5) {  //player reaches water, player wins
             setTimeout(function() {
@@ -82,8 +75,15 @@ class Player extends Entities{
             }, 500);
           }
 
-        } else if (keys == 'down') {
-          this.y += 80; //player moves down
+        } if (this.y < 0) { //up
+          this.y = 0;
+
+        } if (keys == 'down' && this.y < 400) {
+          this.y += 82; //player moves down
+
+        } if (this.y > 400) { //down
+          this.y = 400;
+
         }
       }
 }
