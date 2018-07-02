@@ -96,7 +96,7 @@ let allEnemies = [
     new Enemy (-50, 145, 250),
     new Enemy (-120, 145, 300),
     new Enemy (-40, 230, 300),
-    new Enemy (-80, 230, 100),
+    new Enemy (-80, 230, 100)
 ];
 // Place the player object in a variable called player
 let player = new Player(200, 410);
