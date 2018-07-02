@@ -67,7 +67,7 @@ class Player extends Entities{
         } if (keys == 'up' && this.y > 0) {
           this.y -= 82; //player moves up
 
-          if (this.y < 5) {  //player reaches water, player wins
+            if (this.y < 5) {  //player reaches water, player wins
             setTimeout(function() {
             alert('Congratulations! You beat the bugs.');
             // Reload the game
@@ -85,7 +85,7 @@ class Player extends Entities{
           this.y = 400;
 
         }
-      }
+    }
 }
 
 // Now instantiate your objects.

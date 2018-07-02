@@ -7,7 +7,7 @@ In this game, you have a Player and Enemies (bugs). The goal of the player is to
 [Source: Udacity Project Overview](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
 
 ## How to run the application/game
-Clone or download a copy of the files from the repository and open the index.html on your browser to load the game.
+Clone or download a copy of the files from the [repository](https://github.com/debimsantos/arcade-game.git) and open the index.html on your browser to load the game.
 
 ## Functionalities to be implemented / Use case
 ### Player moves
