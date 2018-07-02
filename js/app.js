@@ -35,7 +35,7 @@ class Enemy extends Entities {
           this.x = -80;
       }
     }
-};
+}
 
 // Player class
 class Player extends Entities{
@@ -74,9 +74,9 @@ class Player extends Entities{
         } else if (keys == 'up') {
           this.y -= 80; //player moves up
 
-          if (player.y < 5) {  //player reaches water, player wins
+          if (this.y < 5) {  //player reaches water, player wins
             setTimeout(function() {
-            alert('Congratulations! You beat the bugs.')
+            alert('Congratulations! You beat the bugs.');
             // Reload the game
             window.location.reload(true);
             }, 500);
